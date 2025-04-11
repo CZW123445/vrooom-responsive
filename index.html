@@ -78,14 +78,20 @@
     /* Tilted video box */
     .hero-video {
     position: absolute;
-    top: 180px;
-    right: 0px;
+    top: auto;
+    bottom: 20px;
+    right: 20px;
     width: 40%;
     box-shadow: 0 10px 20px rgba(0,0,0,0.6);
     z-index: 0;
     border-radius: 5px;
     overflow: hidden;
+    transition: transform 0.3s ease;
     }
+
+    .hero-video:hover {
+    transform: scale(1.3); 
+  }
 
     .hero-video video {
     width: 100%;
@@ -95,8 +101,9 @@
 
     /* CARD SECTION */
     .card-section {
-      
-      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       gap: 20px;
       padding: 50px 10%;
       background-color: #ffffff;
@@ -108,8 +115,13 @@
       border-radius: 8px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.08);
       padding: 20px;
-      width: 280px;
+
+      flex: 1 1 calc(33.333% - 20px);
+
+      max-width: calc(33.333% - 20px);
       transition: transform 0.3s ease;
+
+      box-sizing: border-box;
     }
     
     .card {
@@ -118,8 +130,15 @@
       border-radius: 8px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.08);
       padding: 20px;
-      width: 280px;
+
+      flex: 1 1 calc(33.333% - 20px);
+
+      max-width: calc(33.333% - 20px);
+
+
       transition: transform 0.3s ease;
+
+      box-sizing: border-box;
     }
 
     .top-card:hover {
@@ -132,37 +151,52 @@
       box-shadow: 0 12px 24px rgba(0,0,0,0.1);
     }
 
-    .card h3 {
+    .card h3 , .top-card h3 {
       margin-bottom: 10px;
       color: #003566;
     }
 
-    .card p {
+    .card p , .top-card p {
       font-size: 0.95em;
       color: #444;
     }
 
     /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .hero-text {
-        position: static;
-        margin: 20px auto;
-        background: rgba(0,0,0,0.7);
-        text-align: center;
-      }
+    .card, .top-card {
 
-      .hero-video {
-        position: static;
-        width: 90%;
-        margin: 20px auto;
-      }
+      flex: 1 1 calc(50% - 20px); 
 
-      .card-section {
-        
-        align-items: center;
-        padding: 30px 5%;
-      }
+      max-width: calc(50% - 20px);
     }
+  }
+
+  @media (max-width: 480px) {
+    .card, .top-card {
+
+      flex: 1 1 100%; 
+
+      max-width: 100%;
+    }
+  }
+
+
+  .testdrive{
+  
+    margin: 40px 10%;
+
+
+  }
+
+
+  .footer {
+    background-color: #003566;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
   </style>
 </head>
 <body>
@@ -209,7 +243,58 @@
       <h3>Smart Interior</h3>
       <p>Includes voice assistant, panoramic HUD, memory seats, and climate AI.</p>
     </div>
+
+
+
+    <div class="card">
+      <h3>AMG GT</h3>
+      <p>Coolest car in the world.</p>
+    </div>
+    <div class="card">
+      <h3>BMW</h3>
+      <p>Special for administration and power.</p>
+    </div>
+
+
   </section>
+
+  <section class="testdrive">
+    <h2>Welcome to test drive Mercedes Vision AVTR car!</h2>
+
+    <p><br><br></p>
+
+  <form>
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" placeholder="Enter your name" required><br><br>
+
+    <label>Your Gender:</label>
+        <input type="radio" id="gender-male" name="gender" value="male">
+        <label for="gender-male">Male</label>
+        <input type="radio" id="gender-female" name="gender" value="female">
+        <label for="gender-female">Female</label><br><br>
+
+    <label >Please enter why you want to have a test-drive and tell us your requirements.</label><br><br>
+    <input type="text" id="requirements" placeholder="Enter your words:" ><br><br>
+
+    <label for="date">Your Date of Birth:</label>
+    <input type="date" id="date" required><br><br>
+
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" placeholder="Enter your email" required><br><br>
+
+<button type="submit" style="background-color: rgb(13, 228, 53); border: none; border-radius: 10px; border: solid 1px;font-size: 4rem; font-weight: bold; margin-top: 10px;">Submit</button>
+
+
+  </form>
+
+
+
+  </section>  
+
+  <footer class="footer">
+    <p>Thank you for your watching!</p>
+  </footer>
+    
 
 </body>
 </html>
